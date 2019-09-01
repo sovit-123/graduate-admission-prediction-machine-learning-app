@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Graduate Admission Chance Predictor</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Arimo"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Hind:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+
+  <body>
+    <div class="login">
+      <h1 style="font-weight: bold; font-family: Monospace;">
+        Predict the Chance of Getting M.Tech Admission
+      </h1>
+
+      <!-- Main Input For Receiving Query to for the ML model -->
+      <form action="{{ url_for('predict') }}" method="post">
+        <input
+          type="text"
+          name="gre Score"
+          placeholder="GRE Score"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="toefl Score"
+          placeholder="TOEFL Score"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="university rating"
+          placeholder="University Rating (out of 5)"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="sop"
+          placeholder="Statement of Purpose Strength (out of 5)"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="lor"
+          placeholder="Letter of Recommendation Strength (out of 5)"
+          required="required"
+          style="border-radius: 5px; height: 30px;
+        width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="cgpa"
+          placeholder="CGPA (out of 10)"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+        <input
+          type="text"
+          name="research"
+          placeholder="Research Experience (1 for Yes and 0 for No)"
+          required="required"
+          style="border-radius: 5px; height: 30px; width: 20%;"
+        />
+        <br />
+
+        <button
+          style="color: black; background-color: green;
+               border-radius: 5px; height: 30px; width: 80px;
+               font-weight: bold;"
+          type="submit"
+          class="btn btn-primary btn-block btn-large"
+        >
+          Predict
+        </button>
+      </form>
+
+      <br />
+      <br />
+      <p
+        style="color: green; font-weight: bold; font-family: Monospace; font-size: 20px;"
+      >
+        {{ prediction_text }}
+      </p>
+    </div>
+  </body>
+</html>
