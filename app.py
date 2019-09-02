@@ -18,7 +18,7 @@ def predict():
 
     output = round(prediction[0], 2) * 100
 
-    return render_template('index.html', prediction_text='Your chance of getting an M.Tech Admission is {:.2f}%'.format(output))
+    return render_template('index.html', prediction_text='Your chance of getting Graduate Admission is {:.2f}%'.format(output))
 
 
 if __name__ == "__main__":
